@@ -26,6 +26,7 @@ public class BetaService {
      * @param contact 
      */
     public void store(Contact contact) {
+        
         if (contact.getId() == 0) {            
             Long nextid = db.allContacts().stream().map(Contact::getId).max(Comparator.naturalOrder()).get()+1;
             contact.setId(nextid);
@@ -33,5 +34,6 @@ public class BetaService {
         if (!db.allContacts().contains(contact)) {
             db.allContacts().add(contact);
         }
+        
     }
 }
